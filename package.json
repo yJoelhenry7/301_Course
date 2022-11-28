@@ -1,0 +1,24 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yJoelhenry7/301_course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yJoelhenry7/301_course/issues"
+  },
+  "homepage": "https://github.com/yJoelhenry7/301_course#readme",
+  "dependencies": {
+    "eslint": "^8.28.0",
+    "minimist": "^1.2.7"
+  }
+}
