@@ -3,6 +3,7 @@ const fs = require("fs");
 
 let homeContent = "";
 let projectContent = "";
+let registerContent = "";
 
 fs.readFile("home.html", (err, home) => {
   if (err) {
@@ -17,7 +18,14 @@ fs.readFile("project.html", (err, project) => {
   }
   projectContent = project;
 });
-
+fs.readFile("registration.html", (err, register) => {
+  if (err) {
+    throw err;
+  }
+  registerContent = register;
+});
+const args = require("minimist")(process.argv.slice(1));
+const port = args.port;
 http
   .createServer((request, response) => {
     let url = request.url;
@@ -27,10 +35,16 @@ http
         response.write(projectContent);
         response.end();
         break;
+      case "/register":
+        response.write(registerContent);
+        response.end();
+        break;
       default:
         response.write(homeContent);
         response.end();
         break;
     }
   })
-  .listen(3000);
+  .listen(port, () => {
+    console.log("Port is running in " + port);
+  });
